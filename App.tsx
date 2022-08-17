@@ -21,25 +21,24 @@ export default function App() {
     let searchingName = e.secondPerson;
     let secondperson = '';
     let arr = [e.firstPerson];
-    while (secondperson != e.secondPerson) {
+    let i = 0;
+    // while (secondperson != e.secondPerson) {
+    while (i == 0) {
       let data = userExist({
         searchingName: searchingName,
         relationShip: e.relationShip,
       });
-      searchingName=data?."secondperson"
+      searchingName = data;
       console.log(data);
     }
   };
   function userExist({ searchingName, relationShip }) {
-    return relationShipr.some(
+    return relationShipr.filter(
       (el: { firstPerson: any; secondPerson: any; relationShip: any }) => {
-        
-          if(
+        return (
           (el.firstPerson === searchingName ||
             el.secondPerson === searchingName) &&
           el.relationShip === relationShip
-        )return(
-el
         );
       }
     );
