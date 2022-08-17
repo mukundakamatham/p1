@@ -26,16 +26,20 @@ export default function App() {
         searchingName: searchingName,
         relationShip: e.relationShip,
       });
+      searchingName=data?."secondperson"
       console.log(data);
     }
   };
   function userExist({ searchingName, relationShip }) {
     return relationShipr.some(
       (el: { firstPerson: any; secondPerson: any; relationShip: any }) => {
-        return (
+        
+          if(
           (el.firstPerson === searchingName ||
             el.secondPerson === searchingName) &&
           el.relationShip === relationShip
+        )return(
+el
         );
       }
     );
